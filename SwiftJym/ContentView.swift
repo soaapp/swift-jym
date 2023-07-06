@@ -29,10 +29,13 @@ struct ContentView: View {
                         .foregroundColor(.white)
                     
                     VStack {
-                        Text("Time to Jym")
-                            .font(.largeTitle)
-                            .bold()
+                        HStack {
+                            Text("Welcome to Jym")
+                                .font(.largeTitle)
+                                .bold()
                             .padding()
+                            
+                        }
                         TextField("Username", text: $username)
                             .padding()
                             .frame(width:300, height: 50)

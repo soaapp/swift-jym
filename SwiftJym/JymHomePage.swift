@@ -13,32 +13,63 @@ struct JymHomePage: View {
     //Workout categories
     private let muscleGroups = ["All", "Chest", "Back", "Shoulders", "Biceps", "Triceps"]
     
+    private let trendingExercises = ["deadlift1", "benchpress1", "squat1"]
+    
     var body: some View {
         ZStack {
             Color(white: 0.95)
                 .edgesIgnoringSafeArea(.all)
             
-            VStack(alignment: .leading) {
-                AppBarView()
-                
-                TagLineView()
-                    .padding()
-                
-                SearchAndScanView()
-                
-                ScrollView (.horizontal, showsIndicators: false) {
-                    HStack {
-                        ForEach(0 ..< muscleGroups.count) { i in
-                            MuscleGroupView(isActive: i == selectedMuscleGroup, muscleGroup: muscleGroups[i])
-                                .onTapGesture {
-                                    selectedMuscleGroup = i
-                                }
+            ScrollView {
+                VStack(alignment: .leading) {
+                    AppBarView()
+                    
+                    TagLineView()
+                        .padding()
+                    
+                    SearchAndScanView()
+                    
+                    ScrollView (.horizontal, showsIndicators: false) {
+                        HStack {
+                            ForEach(0 ..< muscleGroups.count) { i in
+                                MuscleGroupView(isActive: i == selectedMuscleGroup, muscleGroup: muscleGroups[i])
+                                    .onTapGesture {
+                                        selectedMuscleGroup = i
+                                    }
+                            }
                         }
+                        .padding()
                     }
-                    .padding()
+                    
+                    Text("Trending")
+                        .font(.custom("Futura-Medium", size: 25))
+                        .padding()
+                    
+                    ScrollView (.horizontal, showsIndicators: false) {
+                        HStack {
+                            ForEach(0 ..< trendingExercises.count) { item in
+                                ExerciseCardView(image: Image(trendingExercises[item]), size: 200)
+                            }
+                            .padding(.trailing)
+                        }
+                        .padding(.horizontal)
+                    }
+                    
+                    Text("Recent")
+                        .font(.custom("Futura-Medium", size: 25))
+                        .padding()
+                    
+                    ScrollView (.horizontal, showsIndicators: false) {
+                        HStack {
+                            ForEach(0 ..< trendingExercises.count) { item in
+                                ExerciseCardView(image: Image(trendingExercises[item]), size: 180)
+                            }
+                            .padding(.trailing)
+                        }
+                        .padding(.horizontal)
+                    }
+                    
                 }
-                
-                
             }
         }
     }
@@ -136,5 +167,39 @@ struct MuscleGroupView: View {
             }
         }
         .padding(.trailing)
+    }
+}
+
+struct ExerciseCardView: View {
+    let image: Image
+    let size: CGFloat
+    
+    var body: some View {
+        VStack {
+            image
+                .resizable()
+                .scaledToFit()
+                .frame(width: size, height: 200 * (size/200))
+                .cornerRadius(40)
+            
+            Text("Sumo Deadlift")
+                .font(.title3)
+                .fontWeight(.bold)
+            
+            HStack (spacing: 2) {
+                ForEach(0 ..< 5) { item in
+                    Image(systemName: "star.fill")
+                        .foregroundColor(.yellow)
+                }
+                
+                Spacer()
+                
+                Image(systemName: "3.lane")
+            }
+        }
+        .frame(width: size)
+        .padding()
+        .background(Color.white)
+        .cornerRadius(20)
     }
 }
