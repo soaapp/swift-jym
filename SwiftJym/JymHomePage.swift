@@ -14,6 +14,7 @@ struct JymHomePage: View {
     private let muscleGroups = ["All", "Chest", "Back", "Shoulders", "Biceps", "Triceps"]
     
     private let trendingExercises = ["deadlift1", "benchpress1", "squat1"]
+    private let recentExercises = ["crunches1", "seatedrow1", "dumbbellcurl1", "hammercurl1", "tricepdip1"]
     
     var body: some View {
         ZStack {
@@ -61,8 +62,8 @@ struct JymHomePage: View {
                     
                     ScrollView (.horizontal, showsIndicators: false) {
                         HStack {
-                            ForEach(0 ..< trendingExercises.count) { item in
-                                ExerciseCardView(image: Image(trendingExercises[item]), size: 180)
+                            ForEach(0 ..< recentExercises.count) { item in
+                                ExerciseCardView(image: Image(recentExercises[item]), size: 180)
                             }
                             .padding(.trailing)
                         }
@@ -71,6 +72,8 @@ struct JymHomePage: View {
                     
                 }
             }
+            
+            
         }
     }
 }
