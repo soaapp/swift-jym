@@ -7,6 +7,10 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		4297A3B92A5F45CC000C46A0 /* Exercise.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4297A3B82A5F45CC000C46A0 /* Exercise.swift */; };
+		4297A3BB2A5F48A9000C46A0 /* ExercisesView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4297A3BA2A5F48A9000C46A0 /* ExercisesView.swift */; };
+		4297A3BD2A5F4939000C46A0 /* StatsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4297A3BC2A5F4939000C46A0 /* StatsView.swift */; };
+		4297A3BF2A5F4953000C46A0 /* ProfileView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4297A3BE2A5F4953000C46A0 /* ProfileView.swift */; };
 		EF8E5EEE2A55D3A5002E8BCB /* SwiftJymApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = EF8E5EED2A55D3A5002E8BCB /* SwiftJymApp.swift */; };
 		EF8E5EF02A55D3A5002E8BCB /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = EF8E5EEF2A55D3A5002E8BCB /* ContentView.swift */; };
 		EF8E5EF22A55D3AA002E8BCB /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = EF8E5EF12A55D3AA002E8BCB /* Assets.xcassets */; };
@@ -15,6 +19,10 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		4297A3B82A5F45CC000C46A0 /* Exercise.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Exercise.swift; sourceTree = "<group>"; };
+		4297A3BA2A5F48A9000C46A0 /* ExercisesView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExercisesView.swift; sourceTree = "<group>"; };
+		4297A3BC2A5F4939000C46A0 /* StatsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StatsView.swift; sourceTree = "<group>"; };
+		4297A3BE2A5F4953000C46A0 /* ProfileView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileView.swift; sourceTree = "<group>"; };
 		EF8E5EEA2A55D3A5002E8BCB /* SwiftJym.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = SwiftJym.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		EF8E5EED2A55D3A5002E8BCB /* SwiftJymApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SwiftJymApp.swift; sourceTree = "<group>"; };
 		EF8E5EEF2A55D3A5002E8BCB /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
@@ -56,6 +64,10 @@
 				EF8E5EED2A55D3A5002E8BCB /* SwiftJymApp.swift */,
 				EF8E5EEF2A55D3A5002E8BCB /* ContentView.swift */,
 				EF8E5EFB2A55D769002E8BCB /* JymHomePage.swift */,
+				4297A3BA2A5F48A9000C46A0 /* ExercisesView.swift */,
+				4297A3BC2A5F4939000C46A0 /* StatsView.swift */,
+				4297A3BE2A5F4953000C46A0 /* ProfileView.swift */,
+				4297A3B82A5F45CC000C46A0 /* Exercise.swift */,
 				EF8E5EF12A55D3AA002E8BCB /* Assets.xcassets */,
 				EF8E5EF32A55D3AA002E8BCB /* Preview Content */,
 			);
@@ -144,7 +156,11 @@
 			buildActionMask = 2147483647;
 			files = (
 				EF8E5EFC2A55D769002E8BCB /* JymHomePage.swift in Sources */,
+				4297A3B92A5F45CC000C46A0 /* Exercise.swift in Sources */,
+				4297A3BD2A5F4939000C46A0 /* StatsView.swift in Sources */,
 				EF8E5EF02A55D3A5002E8BCB /* ContentView.swift in Sources */,
+				4297A3BB2A5F48A9000C46A0 /* ExercisesView.swift in Sources */,
+				4297A3BF2A5F4953000C46A0 /* ProfileView.swift in Sources */,
 				EF8E5EEE2A55D3A5002E8BCB /* SwiftJymApp.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

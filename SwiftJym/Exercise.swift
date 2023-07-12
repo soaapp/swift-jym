@@ -1,5 +1,5 @@
 //
-//  Excercise.swift
+//  Exercise.swift
 //  SwiftJym
 //
 //  Created by Andrea Rota on 11/7/23.

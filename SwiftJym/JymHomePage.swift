@@ -9,6 +9,7 @@ import SwiftUI
 
 struct JymHomePage: View {
     
+    @Environment(\.colorScheme) var colorScheme
     @State private var selectedMuscleGroup: Int = 0
     //Workout categories
     private let muscleGroups = ["All", "Chest", "Back", "Shoulders", "Biceps", "Triceps"]
@@ -17,63 +18,81 @@ struct JymHomePage: View {
     private let recentExercises = Exercise.recentExample() // FIXME: same as trendingExercises
     
     var body: some View {
-        ZStack {
-            Color(white: 0.95)
-                .edgesIgnoringSafeArea(.all)
-            
-            ScrollView {
-                VStack(alignment: .leading) {
-                    AppBarView()
-                    
-                    TagLineView()
-                        .padding()
-                    
-                    SearchAndScanView()
-                    
-                    ScrollView (.horizontal, showsIndicators: false) {
-                        HStack {
-                            ForEach(0 ..< muscleGroups.count, id: \.self) { i in
-                                MuscleGroupView(isActive: i == selectedMuscleGroup, muscleGroup: muscleGroups[i])
-                                    .onTapGesture {
-                                        selectedMuscleGroup = i
-                                    }
+        TabView {
+            ZStack {
+                Color(white: colorScheme == .light ? 0.95 : 0.1)
+                    .edgesIgnoringSafeArea(.all)
+                
+                ScrollView {
+                    VStack(alignment: .leading) {
+                        AppBarView()
+                        
+                        TagLineView()
+                            .padding()
+                        
+                        SearchAndScanView()
+                        
+                        ScrollView (.horizontal, showsIndicators: false) {
+                            HStack {
+                                ForEach(0 ..< muscleGroups.count, id: \.self) { i in
+                                    MuscleGroupView(isActive: i == selectedMuscleGroup, muscleGroup: muscleGroups[i])
+                                        .onTapGesture {
+                                            selectedMuscleGroup = i
+                                        }
+                                }
                             }
+                            .padding()
                         }
-                        .padding()
-                    }
-                    
-                    Text("Trending")
-                        .font(.custom("Futura-Medium", size: 25))
-                        .padding()
-                    
-                    ScrollView (.horizontal, showsIndicators: false) {
-                        HStack {
-                            ForEach(trendingExercises) { item in
-                                ExerciseCardView(exercise: item, size: 200)
+                        
+                        Text("Trending")
+                            .font(.custom("Futura-Medium", size: 25))
+                            .padding()
+                        
+                        ScrollView (.horizontal, showsIndicators: false) {
+                            HStack {
+                                ForEach(trendingExercises) { item in
+                                    ExerciseCardView(exercise: item, size: 200)
+                                }
+                                .padding(.trailing)
                             }
-                            .padding(.trailing)
+                            .padding(.horizontal)
                         }
-                        .padding(.horizontal)
-                    }
-                    
-                    Text("Recent")
-                        .font(.custom("Futura-Medium", size: 25))
-                        .padding()
-                    
-                    ScrollView (.horizontal, showsIndicators: false) {
-                        HStack {
-                            ForEach(recentExercises) { item in
-                                ExerciseCardView(exercise: item, size: 180)
+                        
+                        Text("Recent")
+                            .font(.custom("Futura-Medium", size: 25))
+                            .padding()
+                        
+                        ScrollView (.horizontal, showsIndicators: false) {
+                            HStack {
+                                ForEach(recentExercises) { item in
+                                    ExerciseCardView(exercise: item, size: 180)
+                                }
+                                .padding(.trailing)
                             }
-                            .padding(.trailing)
+                            .padding(.horizontal)
                         }
-                        .padding(.horizontal)
+                        .padding(.bottom)
                     }
-                    
                 }
             }
+            .tabItem {
+                Label("Dashboard", systemImage: "house")
+            }
             
+            ExercisesView()
+                .tabItem {
+                    Label("Exercises", systemImage: "figure.cross.training")
+                }
             
+            StatsView()
+                .tabItem {
+                    Label("Stats", systemImage: "chart.xyaxis.line")
+                }
+            
+            ProfileView()
+                .tabItem {
+                    Label("Profile", systemImage: "person")
+                }
         }
     }
 }
