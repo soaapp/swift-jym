@@ -13,8 +13,8 @@ struct JymHomePage: View {
     //Workout categories
     private let muscleGroups = ["All", "Chest", "Back", "Shoulders", "Biceps", "Triceps"]
     
-    private let trendingExercises = ["deadlift1", "benchpress1", "squat1"]
-    private let recentExercises = ["crunches1", "seatedrow1", "dumbbellcurl1", "hammercurl1", "tricepdip1"]
+    private let trendingExercises = Exercise.trendingExample() // FIXME: injected an example array for preview/debug purpose
+    private let recentExercises = Exercise.recentExample() // FIXME: same as trendingExercises
     
     var body: some View {
         ZStack {
@@ -32,7 +32,7 @@ struct JymHomePage: View {
                     
                     ScrollView (.horizontal, showsIndicators: false) {
                         HStack {
-                            ForEach(0 ..< muscleGroups.count) { i in
+                            ForEach(0 ..< muscleGroups.count, id: \.self) { i in
                                 MuscleGroupView(isActive: i == selectedMuscleGroup, muscleGroup: muscleGroups[i])
                                     .onTapGesture {
                                         selectedMuscleGroup = i
@@ -48,8 +48,8 @@ struct JymHomePage: View {
                     
                     ScrollView (.horizontal, showsIndicators: false) {
                         HStack {
-                            ForEach(0 ..< trendingExercises.count) { item in
-                                ExerciseCardView(image: Image(trendingExercises[item]), size: 200)
+                            ForEach(trendingExercises) { item in
+                                ExerciseCardView(exercise: item, size: 200)
                             }
                             .padding(.trailing)
                         }
@@ -62,8 +62,8 @@ struct JymHomePage: View {
                     
                     ScrollView (.horizontal, showsIndicators: false) {
                         HStack {
-                            ForEach(0 ..< recentExercises.count) { item in
-                                ExerciseCardView(image: Image(recentExercises[item]), size: 180)
+                            ForEach(recentExercises) { item in
+                                ExerciseCardView(exercise: item, size: 180)
                             }
                             .padding(.trailing)
                         }
@@ -174,18 +174,18 @@ struct MuscleGroupView: View {
 }
 
 struct ExerciseCardView: View {
-    let image: Image
+    let exercise: Exercise
     let size: CGFloat
     
     var body: some View {
         VStack {
-            image
+            Image(exercise.image)
                 .resizable()
                 .scaledToFit()
                 .frame(width: size, height: 200 * (size/200))
                 .cornerRadius(40)
             
-            Text("Sumo Deadlift")
+            Text(exercise.name)
                 .font(.title3)
                 .fontWeight(.bold)
             
