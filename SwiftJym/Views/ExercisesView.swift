@@ -12,7 +12,9 @@ struct ExercisesView: View {
     @Environment(\.colorScheme) var colorScheme
     @State private var selectedMuscleGroup: Int = 0
     //Workout categories
-    private let muscleGroups = ["All", "Chest", "Back", "Shoulders", "Biceps", "Triceps"]
+    private let muscleGroups = ["All", "Chest", "Back", "Legs", "Shoulders", "Biceps", "Triceps"]
+    
+    private let allExercises = Exercise.allExercisesExample() // FIXME: injected an example array for preview/debug purpose
     
     var body: some View {
         
@@ -41,11 +43,23 @@ struct ExercisesView: View {
                         .padding()
                     }
                     
+
+                    Text("Exercises")
+                        .font(.custom("Futura-Medium", size: 25))
+                        .padding()
+                    
+                    
+                        VStack {
+                            ForEach(allExercises) { item in  //FIXME: ForEach should be a List but List values do not show
+                                ExerciseRow(exercise: item)
+                                    .padding(.bottom)
+                            }
+                        }
+                        .padding(.vertical)
                     
                 }
             }
         }
-        
         
     }
 }
@@ -63,5 +77,13 @@ struct ExerciseListTagLineView: View {
         + Text("you.")
             .font(.custom("Futura-Bold", size: 20))
             .foregroundColor(.blue)
+    }
+}
+
+struct ExerciseRow: View {
+    var exercise: Exercise
+
+    var body: some View {
+        Text(exercise.name)
     }
 }

@@ -12,7 +12,7 @@ struct JymHomePage: View {
     @Environment(\.colorScheme) var colorScheme
     @State private var selectedMuscleGroup: Int = 0
     //Workout categories
-    private let muscleGroups = ["All", "Chest", "Back", "Shoulders", "Biceps", "Triceps"]
+    private let muscleGroups = ["All", "Chest", "Back", "Legs", "Shoulders", "Biceps", "Triceps"]
     
     private let trendingExercises = Exercise.trendingExample() // FIXME: injected an example array for preview/debug purpose
     private let recentExercises = Exercise.recentExample() // FIXME: same as trendingExercises
