@@ -22,7 +22,7 @@ extension Exercise {
         [
             Exercise(name: "Sumo Deadlift", image: "deadlift1", muscleGroups: ["All"]),
             Exercise(name: "Bench Press", image: "benchpress1", muscleGroups: ["All"]),
-            Exercise(name: "Squat", image: "squat1", muscleGroups: ["All"])
+            Exercise(name: "Squat", image: "squat1", muscleGroups: ["All", "Legs"])
         ]
     }
     
@@ -33,6 +33,19 @@ extension Exercise {
             Exercise(name: "Dumbbell Curl", image: "dumbbellcurl1", muscleGroups: ["All"]),
             Exercise(name: "Hammer Curl", image: "hammercurl1", muscleGroups: ["All"]),
             Exercise(name: "Tricep Dip", image: "tricepdip1", muscleGroups: ["All"])
+        ]
+    }
+    
+    static func allExercisesExample() -> [Exercise] {
+        [
+            Exercise(name: "Crunches", image: "crunches1", muscleGroups: ["All"]),
+            Exercise(name: "Seated Row", image: "seatedrow1", muscleGroups: ["All"]),
+            Exercise(name: "Dumbbell Curl", image: "dumbbellcurl1", muscleGroups: ["All"]),
+            Exercise(name: "Hammer Curl", image: "hammercurl1", muscleGroups: ["All"]),
+            Exercise(name: "Tricep Dip", image: "tricepdip1", muscleGroups: ["All"]),
+            Exercise(name: "Squat", image: "squat1", muscleGroups: ["All", "Legs"]),
+            Exercise(name: "Hammer Curl", image: "hammercurl1", muscleGroups: ["All"]),
+            Exercise(name: "Hammer Curl", image: "hammercurl1", muscleGroups: ["All"])
         ]
     }
 }

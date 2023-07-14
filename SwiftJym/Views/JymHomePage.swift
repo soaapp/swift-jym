@@ -12,7 +12,7 @@ struct JymHomePage: View {
     @Environment(\.colorScheme) var colorScheme
     @State private var selectedMuscleGroup: Int = 0
     //Workout categories
-    private let muscleGroups = ["All", "Chest", "Back", "Shoulders", "Biceps", "Triceps"]
+    private let muscleGroups = ["All", "Chest", "Back", "Legs", "Shoulders", "Biceps", "Triceps"]
     
     private let trendingExercises = Exercise.trendingExample() // FIXME: injected an example array for preview/debug purpose
     private let recentExercises = Exercise.recentExample() // FIXME: same as trendingExercises
@@ -30,19 +30,6 @@ struct JymHomePage: View {
                         TagLineView()
                             .padding()
                         
-                        SearchAndScanView()
-                        
-                        ScrollView (.horizontal, showsIndicators: false) {
-                            HStack {
-                                ForEach(0 ..< muscleGroups.count, id: \.self) { i in
-                                    MuscleGroupView(isActive: i == selectedMuscleGroup, muscleGroup: muscleGroups[i])
-                                        .onTapGesture {
-                                            selectedMuscleGroup = i
-                                        }
-                                }
-                            }
-                            .padding()
-                        }
                         
                         Text("Trending")
                             .font(.custom("Futura-Medium", size: 25))
@@ -117,10 +104,10 @@ struct AppBarView: View {
             Spacer()
             
             Button(action: {}) {
-                Image(systemName: "person.circle.fill")
+                Image(systemName: "bell.fill")
                     .resizable()
                     .scaledToFit()
-                    .frame(width:30, height:30)
+                    .frame(width:25, height:30)
                     .padding()
             }
             
@@ -136,9 +123,9 @@ struct TagLineView: View {
     
     
     var body: some View {
-        Text("Find what moves ")
+        Text("Let's get to ")
             .font(.custom("Futura", size: 28))
-        + Text("you.")
+        + Text("work.")
             .font(.custom("Futura-Bold", size: 28))
             .foregroundColor(.blue)
     }
