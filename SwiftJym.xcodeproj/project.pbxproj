@@ -62,12 +62,8 @@
 			isa = PBXGroup;
 			children = (
 				EF8E5EED2A55D3A5002E8BCB /* SwiftJymApp.swift */,
-				EF8E5EEF2A55D3A5002E8BCB /* ContentView.swift */,
-				EF8E5EFB2A55D769002E8BCB /* JymHomePage.swift */,
-				4297A3BA2A5F48A9000C46A0 /* ExercisesView.swift */,
-				4297A3BC2A5F4939000C46A0 /* StatsView.swift */,
-				4297A3BE2A5F4953000C46A0 /* ProfileView.swift */,
-				4297A3B82A5F45CC000C46A0 /* Exercise.swift */,
+				EF8F3EF82A610AEB00C6B21A /* Models */,
+				EF8F3EF72A610AE600C6B21A /* Views */,
 				EF8E5EF12A55D3AA002E8BCB /* Assets.xcassets */,
 				EF8E5EF32A55D3AA002E8BCB /* Preview Content */,
 			);
@@ -80,6 +76,26 @@
 				EF8E5EF42A55D3AA002E8BCB /* Preview Assets.xcassets */,
 			);
 			path = "Preview Content";
+			sourceTree = "<group>";
+		};
+		EF8F3EF72A610AE600C6B21A /* Views */ = {
+			isa = PBXGroup;
+			children = (
+				EF8E5EEF2A55D3A5002E8BCB /* ContentView.swift */,
+				EF8E5EFB2A55D769002E8BCB /* JymHomePage.swift */,
+				4297A3BA2A5F48A9000C46A0 /* ExercisesView.swift */,
+				4297A3BC2A5F4939000C46A0 /* StatsView.swift */,
+				4297A3BE2A5F4953000C46A0 /* ProfileView.swift */,
+			);
+			path = Views;
+			sourceTree = "<group>";
+		};
+		EF8F3EF82A610AEB00C6B21A /* Models */ = {
+			isa = PBXGroup;
+			children = (
+				4297A3B82A5F45CC000C46A0 /* Exercise.swift */,
+			);
+			path = Models;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */

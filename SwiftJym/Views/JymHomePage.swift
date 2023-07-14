@@ -30,19 +30,6 @@ struct JymHomePage: View {
                         TagLineView()
                             .padding()
                         
-                        SearchAndScanView()
-                        
-                        ScrollView (.horizontal, showsIndicators: false) {
-                            HStack {
-                                ForEach(0 ..< muscleGroups.count, id: \.self) { i in
-                                    MuscleGroupView(isActive: i == selectedMuscleGroup, muscleGroup: muscleGroups[i])
-                                        .onTapGesture {
-                                            selectedMuscleGroup = i
-                                        }
-                                }
-                            }
-                            .padding()
-                        }
                         
                         Text("Trending")
                             .font(.custom("Futura-Medium", size: 25))
@@ -136,9 +123,9 @@ struct TagLineView: View {
     
     
     var body: some View {
-        Text("Find what moves ")
+        Text("Welcome ")
             .font(.custom("Futura", size: 28))
-        + Text("you.")
+        + Text("back.")
             .font(.custom("Futura-Bold", size: 28))
             .foregroundColor(.blue)
     }
