@@ -104,10 +104,10 @@ struct AppBarView: View {
             Spacer()
             
             Button(action: {}) {
-                Image(systemName: "person.circle.fill")
+                Image(systemName: "bell.fill")
                     .resizable()
                     .scaledToFit()
-                    .frame(width:30, height:30)
+                    .frame(width:25, height:30)
                     .padding()
             }
             
@@ -123,9 +123,9 @@ struct TagLineView: View {
     
     
     var body: some View {
-        Text("Welcome ")
+        Text("Let's get to ")
             .font(.custom("Futura", size: 28))
-        + Text("back.")
+        + Text("work.")
             .font(.custom("Futura-Bold", size: 28))
             .foregroundColor(.blue)
     }
