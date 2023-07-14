@@ -127,7 +127,6 @@
 			);
 			mainGroup = EF8E5EE12A55D3A5002E8BCB;
 			packageReferences = (
-				EFBD8C6D2A5753A600607A80 /* XCRemoteSwiftPackageReference "swift" */,
 			);
 			productRefGroup = EF8E5EEB2A55D3A5002E8BCB /* Products */;
 			projectDirPath = "";
@@ -362,17 +361,6 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
-
-/* Begin XCRemoteSwiftPackageReference section */
-		EFBD8C6D2A5753A600607A80 /* XCRemoteSwiftPackageReference "swift" */ = {
-			isa = XCRemoteSwiftPackageReference;
-			repositoryURL = "https://github.com/apple/swift";
-			requirement = {
-				branch = main;
-				kind = branch;
-			};
-		};
-/* End XCRemoteSwiftPackageReference section */
 	};
 	rootObject = EF8E5EE22A55D3A5002E8BCB /* Project object */;
 }
