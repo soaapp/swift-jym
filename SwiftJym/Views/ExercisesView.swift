@@ -22,42 +22,35 @@ struct ExercisesView: View {
             Color(white: colorScheme == .light ? 0.95 : 0.1)
                 .edgesIgnoringSafeArea(.all)
             
-            ScrollView {
-                VStack(alignment: .leading) {
-                    AppBarView()
-                    
-                    ExerciseListTagLineView()
-                        .padding()
-                    
-                    SearchAndScanView()
-                    
-                    ScrollView (.horizontal, showsIndicators: false) {
-                        HStack {
-                            ForEach(0 ..< muscleGroups.count, id: \.self) { i in
-                                MuscleGroupView(isActive: i == selectedMuscleGroup, muscleGroup: muscleGroups[i])
-                                    .onTapGesture {
-                                        selectedMuscleGroup = i
-                                    }
-                            }
+            VStack(alignment: .leading) {
+                AppBarView()
+                
+                ExerciseListTagLineView()
+                    .padding()
+                
+                SearchAndScanView()
+                
+                ScrollView (.horizontal, showsIndicators: false) {
+                    HStack {
+                        ForEach(0 ..< muscleGroups.count, id: \.self) { i in
+                            MuscleGroupView(isActive: i == selectedMuscleGroup, muscleGroup: muscleGroups[i])
+                                .onTapGesture {
+                                    selectedMuscleGroup = i
+                                }
                         }
-                        .padding()
                     }
-                    
-
-                    Text("Exercises")
-                        .font(.custom("Futura-Medium", size: 25))
-                        .padding()
-                    
-                    
-                        VStack {
-                            ForEach(allExercises) { item in  //FIXME: ForEach should be a List but List values do not show
-                                ExerciseRow(exercise: item)
-                                    .padding(.bottom)
-                            }
-                        }
-                        .padding(.vertical)
-                    
+                    .padding()
                 }
+                
+                Text("Exercises")
+                    .font(.custom("Futura-Medium", size: 25))
+                    .padding()
+                
+                List(allExercises) { item in
+                    ExerciseRow(exercise: item)
+                        .padding(.bottom)
+                }
+                .padding(.vertical)
             }
         }
         
@@ -82,7 +75,7 @@ struct ExerciseListTagLineView: View {
 
 struct ExerciseRow: View {
     var exercise: Exercise
-
+    
     var body: some View {
         Text(exercise.name)
     }
