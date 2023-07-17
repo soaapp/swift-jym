@@ -76,9 +76,9 @@ struct JymHomePage: View {
                     Label("Stats", systemImage: "chart.xyaxis.line")
                 }
             
-            ProfileView()
+            GoalView()
                 .tabItem {
-                    Label("Profile", systemImage: "person")
+                    Label("Goals", systemImage: "medal.fill")
                 }
         }
     }

@@ -48,9 +48,8 @@ struct ExercisesView: View {
                 
                 List(allExercises) { item in
                     ExerciseRow(exercise: item)
-                        .padding(.bottom)
                 }
-                .padding(.vertical)
+                .ignoresSafeArea(.all)
             }
         }
         
