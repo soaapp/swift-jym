@@ -1,4 +1,4 @@
-# swift-jym
+# Welcome to JYM
 Gym iOS + SwiftUI app that is an encyclopedia for workouts and their names + benefits. It is also designed to be the perfect Gym Journal that will allow for tracking of goals and dynamically change workouts depending on the equipment available and which muscle group is desired to be worked on that day. 
 
 ## Dashboard:
