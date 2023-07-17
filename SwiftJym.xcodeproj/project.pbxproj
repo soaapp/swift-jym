@@ -10,25 +10,31 @@
 		4297A3B92A5F45CC000C46A0 /* Exercise.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4297A3B82A5F45CC000C46A0 /* Exercise.swift */; };
 		4297A3BB2A5F48A9000C46A0 /* ExercisesView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4297A3BA2A5F48A9000C46A0 /* ExercisesView.swift */; };
 		4297A3BD2A5F4939000C46A0 /* StatsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4297A3BC2A5F4939000C46A0 /* StatsView.swift */; };
-		4297A3BF2A5F4953000C46A0 /* ProfileView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4297A3BE2A5F4953000C46A0 /* ProfileView.swift */; };
+		4297A3BF2A5F4953000C46A0 /* GoalView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4297A3BE2A5F4953000C46A0 /* GoalView.swift */; };
 		EF8E5EEE2A55D3A5002E8BCB /* SwiftJymApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = EF8E5EED2A55D3A5002E8BCB /* SwiftJymApp.swift */; };
 		EF8E5EF02A55D3A5002E8BCB /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = EF8E5EEF2A55D3A5002E8BCB /* ContentView.swift */; };
 		EF8E5EF22A55D3AA002E8BCB /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = EF8E5EF12A55D3AA002E8BCB /* Assets.xcassets */; };
 		EF8E5EF52A55D3AA002E8BCB /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = EF8E5EF42A55D3AA002E8BCB /* Preview Assets.xcassets */; };
 		EF8E5EFC2A55D769002E8BCB /* JymHomePage.swift in Sources */ = {isa = PBXBuildFile; fileRef = EF8E5EFB2A55D769002E8BCB /* JymHomePage.swift */; };
+		EFE45B012A65C6F0006748FF /* GymGoalsDataModel.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = EFE45AFF2A65C6F0006748FF /* GymGoalsDataModel.xcdatamodeld */; };
+		EFE45B032A65C94B006748FF /* AddGoalView.swift in Sources */ = {isa = PBXBuildFile; fileRef = EFE45B022A65C94B006748FF /* AddGoalView.swift */; };
+		EFE45B072A65D9B5006748FF /* DataManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = EFE45B062A65D9B5006748FF /* DataManager.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
 		4297A3B82A5F45CC000C46A0 /* Exercise.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Exercise.swift; sourceTree = "<group>"; };
 		4297A3BA2A5F48A9000C46A0 /* ExercisesView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExercisesView.swift; sourceTree = "<group>"; };
 		4297A3BC2A5F4939000C46A0 /* StatsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StatsView.swift; sourceTree = "<group>"; };
-		4297A3BE2A5F4953000C46A0 /* ProfileView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileView.swift; sourceTree = "<group>"; };
+		4297A3BE2A5F4953000C46A0 /* GoalView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GoalView.swift; sourceTree = "<group>"; };
 		EF8E5EEA2A55D3A5002E8BCB /* SwiftJym.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = SwiftJym.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		EF8E5EED2A55D3A5002E8BCB /* SwiftJymApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SwiftJymApp.swift; sourceTree = "<group>"; };
 		EF8E5EEF2A55D3A5002E8BCB /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
 		EF8E5EF12A55D3AA002E8BCB /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		EF8E5EF42A55D3AA002E8BCB /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
 		EF8E5EFB2A55D769002E8BCB /* JymHomePage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = JymHomePage.swift; sourceTree = "<group>"; };
+		EFE45B002A65C6F0006748FF /* GymGoalsDataModel.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = GymGoalsDataModel.xcdatamodel; sourceTree = "<group>"; };
+		EFE45B022A65C94B006748FF /* AddGoalView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddGoalView.swift; sourceTree = "<group>"; };
+		EFE45B062A65D9B5006748FF /* DataManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DataManager.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -45,6 +51,7 @@
 		EF8E5EE12A55D3A5002E8BCB = {
 			isa = PBXGroup;
 			children = (
+				EFE45B062A65D9B5006748FF /* DataManager.swift */,
 				EF8E5EEC2A55D3A5002E8BCB /* SwiftJym */,
 				EF8E5EEB2A55D3A5002E8BCB /* Products */,
 			);
@@ -84,8 +91,10 @@
 				EF8E5EEF2A55D3A5002E8BCB /* ContentView.swift */,
 				EF8E5EFB2A55D769002E8BCB /* JymHomePage.swift */,
 				4297A3BA2A5F48A9000C46A0 /* ExercisesView.swift */,
+				EFE45AFF2A65C6F0006748FF /* GymGoalsDataModel.xcdatamodeld */,
 				4297A3BC2A5F4939000C46A0 /* StatsView.swift */,
-				4297A3BE2A5F4953000C46A0 /* ProfileView.swift */,
+				4297A3BE2A5F4953000C46A0 /* GoalView.swift */,
+				EFE45B022A65C94B006748FF /* AddGoalView.swift */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -173,9 +182,12 @@
 				EF8E5EFC2A55D769002E8BCB /* JymHomePage.swift in Sources */,
 				4297A3B92A5F45CC000C46A0 /* Exercise.swift in Sources */,
 				4297A3BD2A5F4939000C46A0 /* StatsView.swift in Sources */,
+				EFE45B032A65C94B006748FF /* AddGoalView.swift in Sources */,
 				EF8E5EF02A55D3A5002E8BCB /* ContentView.swift in Sources */,
+				EFE45B012A65C6F0006748FF /* GymGoalsDataModel.xcdatamodeld in Sources */,
 				4297A3BB2A5F48A9000C46A0 /* ExercisesView.swift in Sources */,
-				4297A3BF2A5F4953000C46A0 /* ProfileView.swift in Sources */,
+				4297A3BF2A5F4953000C46A0 /* GoalView.swift in Sources */,
+				EFE45B072A65D9B5006748FF /* DataManager.swift in Sources */,
 				EF8E5EEE2A55D3A5002E8BCB /* SwiftJymApp.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -377,6 +389,19 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
+
+/* Begin XCVersionGroup section */
+		EFE45AFF2A65C6F0006748FF /* GymGoalsDataModel.xcdatamodeld */ = {
+			isa = XCVersionGroup;
+			children = (
+				EFE45B002A65C6F0006748FF /* GymGoalsDataModel.xcdatamodel */,
+			);
+			currentVersion = EFE45B002A65C6F0006748FF /* GymGoalsDataModel.xcdatamodel */;
+			path = GymGoalsDataModel.xcdatamodeld;
+			sourceTree = "<group>";
+			versionGroupType = wrapper.xcdatamodel;
+		};
+/* End XCVersionGroup section */
 	};
 	rootObject = EF8E5EE22A55D3A5002E8BCB /* Project object */;
 }
