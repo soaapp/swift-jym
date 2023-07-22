@@ -19,6 +19,7 @@
 		EF9FBEC72A6B62A7006DEC12 /* ExerciseDetailsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = EF9FBEC62A6B62A7006DEC12 /* ExerciseDetailsView.swift */; };
 		EFE2CE5B2A6B8CF200F8DF87 /* ExerciseModelData.swift in Sources */ = {isa = PBXBuildFile; fileRef = EFE2CE5A2A6B8CF200F8DF87 /* ExerciseModelData.swift */; };
 		EFE2CE642A6B9F9B00F8DF87 /* jymexercises.json in Resources */ = {isa = PBXBuildFile; fileRef = EFE2CE632A6B9F9B00F8DF87 /* jymexercises.json */; };
+		EFE2CE692A6BB3FB00F8DF87 /* Launch Screen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = EFE2CE682A6BB3FB00F8DF87 /* Launch Screen.storyboard */; };
 		EFE45B012A65C6F0006748FF /* GymGoalsDataModel.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = EFE45AFF2A65C6F0006748FF /* GymGoalsDataModel.xcdatamodeld */; };
 		EFE45B032A65C94B006748FF /* AddGoalView.swift in Sources */ = {isa = PBXBuildFile; fileRef = EFE45B022A65C94B006748FF /* AddGoalView.swift */; };
 		EFE45B072A65D9B5006748FF /* DataManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = EFE45B062A65D9B5006748FF /* DataManager.swift */; };
@@ -38,6 +39,8 @@
 		EF9FBEC62A6B62A7006DEC12 /* ExerciseDetailsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExerciseDetailsView.swift; sourceTree = "<group>"; };
 		EFE2CE5A2A6B8CF200F8DF87 /* ExerciseModelData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExerciseModelData.swift; sourceTree = "<group>"; };
 		EFE2CE632A6B9F9B00F8DF87 /* jymexercises.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = jymexercises.json; sourceTree = "<group>"; };
+		EFE2CE672A6BAF4500F8DF87 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist; path = Info.plist; sourceTree = "<group>"; };
+		EFE2CE682A6BB3FB00F8DF87 /* Launch Screen.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = "Launch Screen.storyboard"; sourceTree = "<group>"; };
 		EFE45B002A65C6F0006748FF /* GymGoalsDataModel.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = GymGoalsDataModel.xcdatamodel; sourceTree = "<group>"; };
 		EFE45B022A65C94B006748FF /* AddGoalView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddGoalView.swift; sourceTree = "<group>"; };
 		EFE45B062A65D9B5006748FF /* DataManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DataManager.swift; sourceTree = "<group>"; };
@@ -57,6 +60,7 @@
 		EF8E5EE12A55D3A5002E8BCB = {
 			isa = PBXGroup;
 			children = (
+				EFE2CE682A6BB3FB00F8DF87 /* Launch Screen.storyboard */,
 				EFE2CE622A6B9F8D00F8DF87 /* Resources */,
 				EFE45B062A65D9B5006748FF /* DataManager.swift */,
 				EF8E5EEC2A55D3A5002E8BCB /* SwiftJym */,
@@ -75,6 +79,7 @@
 		EF8E5EEC2A55D3A5002E8BCB /* SwiftJym */ = {
 			isa = PBXGroup;
 			children = (
+				EFE2CE672A6BAF4500F8DF87 /* Info.plist */,
 				EF8E5EED2A55D3A5002E8BCB /* SwiftJymApp.swift */,
 				EF8F3EF82A610AEB00C6B21A /* Models */,
 				EF8F3EF72A610AE600C6B21A /* Views */,
@@ -202,6 +207,7 @@
 			files = (
 				EFE2CE642A6B9F9B00F8DF87 /* jymexercises.json in Resources */,
 				EF8E5EF52A55D3AA002E8BCB /* Preview Assets.xcassets in Resources */,
+				EFE2CE692A6BB3FB00F8DF87 /* Launch Screen.storyboard in Resources */,
 				EF8E5EF22A55D3AA002E8BCB /* Assets.xcassets in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -356,9 +362,10 @@
 				DEVELOPMENT_TEAM = J5PULWA79J;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = SwiftJym/Info.plist;
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
-				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
+				INFOPLIST_KEY_UILaunchStoryboardName = "Launch Screen.storyboard";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				LD_RUNPATH_SEARCH_PATHS = (
@@ -385,9 +392,10 @@
 				DEVELOPMENT_TEAM = J5PULWA79J;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = SwiftJym/Info.plist;
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
-				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
+				INFOPLIST_KEY_UILaunchStoryboardName = "Launch Screen.storyboard";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				LD_RUNPATH_SEARCH_PATHS = (
