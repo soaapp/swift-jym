@@ -13,8 +13,9 @@ struct JymHomePage: View {
     //Workout categories
     private let muscleGroups = ["All", "Chest", "Back", "Legs", "Shoulders", "Biceps", "Triceps"]
     
-    private let trendingExercises = Exercise.trendingExample() // FIXME: injected an example array for preview/debug purpose
-    private let recentExercises = Exercise.recentExample() // FIXME: same as trendingExercises
+    //TODO: Should not be hard coded array values like this. Should be dynamically changing depending on if value is "trending" or "recently" tapped from the Exercises list
+    private let trendingExercises = [exercises[0], exercises[1], exercises[2]]
+    private let recentExercises = [exercises[4], exercises[5], exercises[1], exercises[6], exercises[7]]
     
     var body: some View {
         NavigationView {
@@ -41,7 +42,7 @@ struct JymHomePage: View {
                                     HStack {
                                         ForEach(trendingExercises) { item in
                                             NavigationLink(
-                                                destination: ExerciseDetailsView(),
+                                                destination: ExerciseDetailsView(exercise: item),
                                                 label: {
                                                     ExerciseCardView(exercise: item, size: 200)
                                                 })
@@ -62,7 +63,7 @@ struct JymHomePage: View {
                                     HStack {
                                         ForEach(recentExercises) { item in
                                             NavigationLink(
-                                                destination: ExerciseDetailsView(),
+                                                destination: ExerciseDetailsView(exercise: item),
                                                 label: {
                                                     ExerciseCardView(exercise: item, size: 200)
                                                 })
@@ -155,7 +156,7 @@ struct ExerciseCardView: View {
     
     var body: some View {
         VStack {
-            Image(exercise.image)
+            Image(exercise.imageName)
                 .resizable()
                 .scaledToFit()
                 .frame(width: size, height: 200 * (size/200))
@@ -164,6 +165,7 @@ struct ExerciseCardView: View {
             Text(exercise.name)
                 .font(.title3)
                 .fontWeight(.bold)
+                .lineLimit(1)
             
             HStack (spacing: 2) {
                 ForEach(0 ..< 5) { item in

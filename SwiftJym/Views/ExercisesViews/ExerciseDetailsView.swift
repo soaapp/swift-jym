@@ -8,6 +8,7 @@
 import SwiftUI
 
 struct ExerciseDetailsView: View {
+    let exercise: Exercise
     
     @Environment(\.presentationMode) var presentationMode: Binding<PresentationMode>
     var body: some View {
@@ -16,11 +17,11 @@ struct ExerciseDetailsView: View {
                     .edgesIgnoringSafeArea(.all)
                 
                 ScrollView {
-                    Image("deadlift1")
+                    Image(exercise.imageName)
                         .resizable()
                         .aspectRatio(contentMode: .fit)
                     
-                    DescriptionView()
+                    DescriptionView(exercise: exercise)
                         .offset(y: -40)
                 }
                 .edgesIgnoringSafeArea(.top)
@@ -61,7 +62,7 @@ struct ExerciseDetailsView: View {
 
 struct ExerciseDetailsView_Previews: PreviewProvider {
     static var previews: some View {
-        ExerciseDetailsView()
+        ExerciseDetailsView(exercise: exercises[0])
     }
 }
 
@@ -83,9 +84,11 @@ extension View {
 }
 
 struct DescriptionView: View {
+    let exercise: Exercise
+    
     var body: some View {
         VStack (alignment: .leading) {
-            Text("Sumo Deadlift")
+            Text(exercise.name)
                 .font(.title)
                 .fontWeight(.bold)
             
@@ -94,7 +97,7 @@ struct DescriptionView: View {
                     Image(systemName: "star.fill")
                         .foregroundColor(Color.yellow)
                 }
-                Text("Advanced")
+                Text(exercise.level.capitalized)
                     .opacity(0.5)
                     .padding(.leading, 8)
                 
@@ -107,11 +110,11 @@ struct DescriptionView: View {
                     Text("Details")
                         .fontWeight(.semibold)
                         .padding(.bottom, 4)
-                    Text("Force: Pull")
+                    Text("Force: \(exercise.force.capitalized)")
                         .opacity(0.6)
-                    Text("Mechanic: Compound")
+                    Text("Mechanic: \(exercise.mechanic.capitalized)")
                         .opacity(0.6)
-                    Text("Equipment: Barbell")
+                    Text("Equipment: \(exercise.equipment.capitalized)")
                         .opacity(0.6)
                 }
                 .frame(maxWidth: .infinity, alignment: .leading)
@@ -120,9 +123,9 @@ struct DescriptionView: View {
                     Text("Muscle Groups")
                         .fontWeight(.semibold)
                         .padding(.bottom, 4)
-                    Text("Primary Muscle: Hamstrings")
+                    Text("Primary Muscle: \(exercise.primaryMuscles.joined(separator: ",").capitalized)")
                         .opacity(0.6)
-                    Text("Secondary Muscles: Glutes, Lower Back ")
+                    Text("Secondary Muscles: \(exercise.secondaryMuscles.joined(separator: ",").capitalized)")
                         .opacity(0.6)
                 }
                 .frame(maxWidth: .infinity, alignment: .leading)
@@ -134,7 +137,7 @@ struct DescriptionView: View {
                 .fontWeight(.medium)
                 .padding(.vertical, 8)
             
-            Text("Begin with a bar loaded on the ground. Approach the bar so that the bar intersects the middle of the feet. The feet should be set very wide, near the collars. Bend at the hips to grip the bar. The arms should be directly below the shoulders, inside the legs, and you can use a pronated grip, a mixed grip, or hook grip. Relax the shoulders, which in effect lengthens your arms.Take a breath, and then lower your hips, looking forward with your head with your chest up. Drive through the floor, spreading your feet apart, with your weight on the back half of your feet. Extend through the hips and knees.As the bar passes through the knees, lean back and drive the hips into the bar, pulling your shoulder blades together. Return the weight to the ground by bending at the hips and controlling the weight on the way down.")
+            Text("\(exercise.instructions.joined(separator: " "))")
                 .lineSpacing(6.0)
                 .opacity(0.6)
             
