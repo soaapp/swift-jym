@@ -9,7 +9,6 @@ import SwiftUI
 
 struct JymHomePage: View {
     
-    @Environment(\.colorScheme) var colorScheme
     @State private var selectedMuscleGroup: Int = 0
     //Workout categories
     private let muscleGroups = ["All", "Chest", "Back", "Legs", "Shoulders", "Biceps", "Triceps"]
@@ -18,68 +17,87 @@ struct JymHomePage: View {
     private let recentExercises = Exercise.recentExample() // FIXME: same as trendingExercises
     
     var body: some View {
-        TabView {
+        NavigationView {
             ZStack {
-                Color(white: colorScheme == .light ? 0.95 : 0.1)
-                    .edgesIgnoringSafeArea(.all)
-                
-                ScrollView {
-                    VStack(alignment: .leading) {
-                        AppBarView()
+                TabView {
+                    ZStack {
+                        Color("Bg")
+                            .edgesIgnoringSafeArea(.all)
                         
-                        TagLineView()
-                            .padding()
-                        
-                        
-                        Text("Trending")
-                            .font(.custom("Futura-Medium", size: 25))
-                            .padding()
-                        
-                        ScrollView (.horizontal, showsIndicators: false) {
-                            HStack {
-                                ForEach(trendingExercises) { item in
-                                    ExerciseCardView(exercise: item, size: 200)
+                        ScrollView {
+                            VStack(alignment: .leading) {
+                                AppBarView()
+                                
+                                TagLineView()
+                                    .padding()
+                                
+                                
+                                Text("Trending")
+                                    .font(.custom("Futura-Medium", size: 25))
+                                    .padding()
+                                
+                                
+                                ScrollView (.horizontal, showsIndicators: false) {
+                                    HStack {
+                                        ForEach(trendingExercises) { item in
+                                            NavigationLink(
+                                                destination: ExerciseDetailsView(),
+                                                label: {
+                                                    ExerciseCardView(exercise: item, size: 200)
+                                                })
+                                                .navigationBarHidden(true)
+                                                .foregroundColor(.black)
+                                            
+                                        }
+                                        .padding(.trailing)
+                                    }
+                                    .padding(.horizontal)
                                 }
-                                .padding(.trailing)
-                            }
-                            .padding(.horizontal)
-                        }
-                        
-                        Text("Recent")
-                            .font(.custom("Futura-Medium", size: 25))
-                            .padding()
-                        
-                        ScrollView (.horizontal, showsIndicators: false) {
-                            HStack {
-                                ForEach(recentExercises) { item in
-                                    ExerciseCardView(exercise: item, size: 180)
+                                
+                                Text("Recent")
+                                    .font(.custom("Futura-Medium", size: 25))
+                                    .padding()
+                                
+                                ScrollView (.horizontal, showsIndicators: false) {
+                                    HStack {
+                                        ForEach(recentExercises) { item in
+                                            NavigationLink(
+                                                destination: ExerciseDetailsView(),
+                                                label: {
+                                                    ExerciseCardView(exercise: item, size: 200)
+                                                })
+                                                .navigationBarHidden(true)
+                                                .foregroundColor(.black)
+                                        }
+                                        .padding(.trailing)
+                                    }
+                                    .padding(.horizontal)
                                 }
-                                .padding(.trailing)
+                                .padding(.bottom)
                             }
-                            .padding(.horizontal)
                         }
-                        .padding(.bottom)
                     }
+                    .tabItem {
+                        Label("Dashboard", systemImage: "house")
+                    }
+                    
+                    ExercisesView()
+                        .tabItem {
+                            Label("Exercises", systemImage: "figure.cross.training")
+                        }
+                    
+                    StatsView()
+                        .tabItem {
+                            Label("Stats", systemImage: "chart.xyaxis.line")
+                        }
+                    
+                    GoalView()
+                        .tabItem {
+                            Label("Goals", systemImage: "medal.fill")
+                        }
                 }
             }
-            .tabItem {
-                Label("Dashboard", systemImage: "house")
-            }
-            
-            ExercisesView()
-                .tabItem {
-                    Label("Exercises", systemImage: "figure.cross.training")
-                }
-            
-            StatsView()
-                .tabItem {
-                    Label("Stats", systemImage: "chart.xyaxis.line")
-                }
-            
-            GoalView()
-                .tabItem {
-                    Label("Goals", systemImage: "medal.fill")
-                }
+            .navigationBarBackButtonHidden(true)
         }
     }
 }
@@ -128,54 +146,6 @@ struct TagLineView: View {
         + Text("work.")
             .font(.custom("Futura-Bold", size: 28))
             .foregroundColor(.blue)
-    }
-}
-
-struct SearchAndScanView: View {
-    @State private var search: String = ""
-    
-    var body: some View {
-        HStack{
-            
-            HStack {
-                Image(systemName: "magnifyingglass")
-                    .padding(.trailing, 8)
-                TextField("Search exercises", text: $search)
-            }
-            .padding(.all, 15)
-            .background(Color.white)
-            .cornerRadius(6)
-            .padding(.horizontal,1)
-            
-            Button(action: {}) {
-                Image(systemName: "camera")
-            }
-            
-            
-        }
-        .padding(.horizontal)
-    }
-}
-
-struct MuscleGroupView: View {
-    let isActive: Bool
-    let muscleGroup: String
-    
-    var body: some View {
-        VStack (alignment: .leading, spacing: 0) {
-            Text(muscleGroup)
-                .font(.system(size:20))
-                .fontWeight(.medium)
-                .foregroundColor(isActive ? .black : .gray)
-            
-            
-            if (isActive) {
-                Color(.black)
-                    .frame(width: 15, height: 2)
-                    .clipShape(Capsule())
-            }
-        }
-        .padding(.trailing)
     }
 }
 

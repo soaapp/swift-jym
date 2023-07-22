@@ -9,7 +9,6 @@ import SwiftUI
 
 struct ExercisesView: View {
     
-    @Environment(\.colorScheme) var colorScheme
     @State private var selectedMuscleGroup: Int = 0
     //Workout categories
     private let muscleGroups = ["All", "Chest", "Back", "Legs", "Shoulders", "Biceps", "Triceps"]
@@ -19,7 +18,7 @@ struct ExercisesView: View {
     var body: some View {
         
         ZStack {
-            Color(white: colorScheme == .light ? 0.95 : 0.1)
+            Color("Bg")
                 .edgesIgnoringSafeArea(.all)
             
             VStack(alignment: .leading) {
@@ -68,7 +67,55 @@ struct ExerciseListTagLineView: View {
             .font(.custom("Futura", size: 20))
         + Text("you.")
             .font(.custom("Futura-Bold", size: 20))
-            .foregroundColor(.blue)
+            .foregroundColor(Color("Primary"))
+    }
+}
+
+struct SearchAndScanView: View {
+    @State private var search: String = ""
+    
+    var body: some View {
+        HStack{
+            
+            HStack {
+                Image(systemName: "magnifyingglass")
+                    .padding(.trailing, 8)
+                TextField("Search exercises", text: $search)
+            }
+            .padding(.all, 15)
+            .background(Color.white)
+            .cornerRadius(6)
+            .padding(.horizontal,1)
+            
+            Button(action: {}) {
+                Image(systemName: "camera")
+            }
+            
+            
+        }
+        .padding(.horizontal)
+    }
+}
+
+struct MuscleGroupView: View {
+    let isActive: Bool
+    let muscleGroup: String
+    
+    var body: some View {
+        VStack (alignment: .leading, spacing: 0) {
+            Text(muscleGroup)
+                .font(.system(size:20))
+                .fontWeight(.medium)
+                .foregroundColor(isActive ? .black : .gray)
+            
+            
+            if (isActive) {
+                Color(.black)
+                    .frame(width: 15, height: 2)
+                    .clipShape(Capsule())
+            }
+        }
+        .padding(.trailing)
     }
 }
 
