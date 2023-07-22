@@ -28,7 +28,9 @@ struct AddGoalView: View {
     
     
     var body: some View {
+        
         NavigationView {
+            
             Form {
                 Section {
                     TextField("Lifting Goal", text: $title)
