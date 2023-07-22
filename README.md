@@ -3,6 +3,8 @@ Gym iOS + SwiftUI app that is an encyclopedia for workouts and their names + ben
 
 ## Dashboard:
 <img src="https://github.com/soaapp/swift-jym/assets/32276969/9742c916-6898-4bad-8cc3-52973c4e8b9c" alt="dashboard" width="200"/>
+<img src="https://github.com/soaapp/swift-jym/assets/32276969/b7318bdc-e7ac-4923-88e5-ae5e627ed887" alt="dashboard" width="200"/>
+
 
 
 ## Exercise List:
