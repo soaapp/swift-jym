@@ -8,27 +8,6 @@
 import Foundation
 import SwiftUI
 
-//struct Exercise: Identifiable, Hashable, Codable {
-//
-//    let id: String
-//    let name: String
-//    let force: String
-//    let level: String
-//    let mechanic: String
-//    let equipment: String
-//    let primaryMuscles: [String]
-//    let secondaryMuscles: [String]
-//    let instructions: String
-//    let category: String
-//
-//    let imageName: String
-////    var image: Image {
-////        Image(imageName)
-////    }
-//
-//}
-
-
 // MARK: - Exercise
 struct Exercise: Hashable, Codable, Identifiable {
     let id, name, force, level: String
