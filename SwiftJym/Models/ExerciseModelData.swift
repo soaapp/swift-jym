@@ -7,7 +7,7 @@
 
 import Foundation
 
-var exercises: [Exercise] = load("jymexercises.json")
+var exercises: [Exercise] = load("exercisesJym.json")
 
 
 func load<T: Decodable>(_ filename: String) -> T {

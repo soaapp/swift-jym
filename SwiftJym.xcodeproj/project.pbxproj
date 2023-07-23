@@ -16,9 +16,9 @@
 		EF8E5EF22A55D3AA002E8BCB /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = EF8E5EF12A55D3AA002E8BCB /* Assets.xcassets */; };
 		EF8E5EF52A55D3AA002E8BCB /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = EF8E5EF42A55D3AA002E8BCB /* Preview Assets.xcassets */; };
 		EF8E5EFC2A55D769002E8BCB /* JymHomePage.swift in Sources */ = {isa = PBXBuildFile; fileRef = EF8E5EFB2A55D769002E8BCB /* JymHomePage.swift */; };
+		EF96B61D2A6D083B00DACB2D /* exercisesJym.json in Resources */ = {isa = PBXBuildFile; fileRef = EF96B61C2A6D083B00DACB2D /* exercisesJym.json */; };
 		EF9FBEC72A6B62A7006DEC12 /* ExerciseDetailsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = EF9FBEC62A6B62A7006DEC12 /* ExerciseDetailsView.swift */; };
 		EFE2CE5B2A6B8CF200F8DF87 /* ExerciseModelData.swift in Sources */ = {isa = PBXBuildFile; fileRef = EFE2CE5A2A6B8CF200F8DF87 /* ExerciseModelData.swift */; };
-		EFE2CE642A6B9F9B00F8DF87 /* jymexercises.json in Resources */ = {isa = PBXBuildFile; fileRef = EFE2CE632A6B9F9B00F8DF87 /* jymexercises.json */; };
 		EFE2CE692A6BB3FB00F8DF87 /* Launch Screen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = EFE2CE682A6BB3FB00F8DF87 /* Launch Screen.storyboard */; };
 		EFE45B012A65C6F0006748FF /* GymGoalsDataModel.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = EFE45AFF2A65C6F0006748FF /* GymGoalsDataModel.xcdatamodeld */; };
 		EFE45B032A65C94B006748FF /* AddGoalView.swift in Sources */ = {isa = PBXBuildFile; fileRef = EFE45B022A65C94B006748FF /* AddGoalView.swift */; };
@@ -36,9 +36,9 @@
 		EF8E5EF12A55D3AA002E8BCB /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		EF8E5EF42A55D3AA002E8BCB /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
 		EF8E5EFB2A55D769002E8BCB /* JymHomePage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = JymHomePage.swift; sourceTree = "<group>"; };
+		EF96B61C2A6D083B00DACB2D /* exercisesJym.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = exercisesJym.json; sourceTree = "<group>"; };
 		EF9FBEC62A6B62A7006DEC12 /* ExerciseDetailsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExerciseDetailsView.swift; sourceTree = "<group>"; };
 		EFE2CE5A2A6B8CF200F8DF87 /* ExerciseModelData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExerciseModelData.swift; sourceTree = "<group>"; };
-		EFE2CE632A6B9F9B00F8DF87 /* jymexercises.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = jymexercises.json; sourceTree = "<group>"; };
 		EFE2CE672A6BAF4500F8DF87 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist; path = Info.plist; sourceTree = "<group>"; };
 		EFE2CE682A6BB3FB00F8DF87 /* Launch Screen.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = "Launch Screen.storyboard"; sourceTree = "<group>"; };
 		EFE45B002A65C6F0006748FF /* GymGoalsDataModel.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = GymGoalsDataModel.xcdatamodel; sourceTree = "<group>"; };
@@ -140,7 +140,7 @@
 		EFE2CE622A6B9F8D00F8DF87 /* Resources */ = {
 			isa = PBXGroup;
 			children = (
-				EFE2CE632A6B9F9B00F8DF87 /* jymexercises.json */,
+				EF96B61C2A6D083B00DACB2D /* exercisesJym.json */,
 			);
 			path = Resources;
 			sourceTree = "<group>";
@@ -205,7 +205,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				EFE2CE642A6B9F9B00F8DF87 /* jymexercises.json in Resources */,
+				EF96B61D2A6D083B00DACB2D /* exercisesJym.json in Resources */,
 				EF8E5EF52A55D3AA002E8BCB /* Preview Assets.xcassets in Resources */,
 				EFE2CE692A6BB3FB00F8DF87 /* Launch Screen.storyboard in Resources */,
 				EF8E5EF22A55D3AA002E8BCB /* Assets.xcassets in Resources */,

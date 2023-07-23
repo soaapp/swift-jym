@@ -9,13 +9,9 @@ import SwiftUI
 
 struct JymHomePage: View {
     
-    @State private var selectedMuscleGroup: Int = 0
-    //Workout categories
-    private let muscleGroups = ["All", "Chest", "Back", "Legs", "Shoulders", "Biceps", "Triceps"]
-    
-    //TODO: Should not be hard coded array values like this. Should be dynamically changing depending on if value is "trending" or "recently" tapped from the Exercises list
-    private let trendingExercises = [exercises[0], exercises[1], exercises[2]]
-    private let recentExercises = [exercises[4], exercises[5], exercises[1], exercises[6], exercises[7]]
+    //TODO: featuredExercises and recentExercises should never be empty. Add null check.
+    private let featuredExercises = Exercise.featuredExercises()
+    private let recentExercises = Exercise.recentExercises()
     
     var body: some View {
         NavigationView {
@@ -33,14 +29,14 @@ struct JymHomePage: View {
                                     .padding()
                                 
                                 
-                                Text("Trending")
+                                Text("Featured")
                                     .font(.custom("Futura-Medium", size: 25))
                                     .padding()
                                 
                                 
                                 ScrollView (.horizontal, showsIndicators: false) {
                                     HStack {
-                                        ForEach(trendingExercises) { item in
+                                        ForEach(featuredExercises) { item in
                                             NavigationLink(
                                                 destination: ExerciseDetailsView(exercise: item),
                                                 label: {
@@ -65,7 +61,7 @@ struct JymHomePage: View {
                                             NavigationLink(
                                                 destination: ExerciseDetailsView(exercise: item),
                                                 label: {
-                                                    ExerciseCardView(exercise: item, size: 200)
+                                                    ExerciseCardView(exercise: item, size: 150)
                                                 })
                                                 .navigationBarHidden(true)
                                                 .foregroundColor(.black)
