@@ -27,6 +27,7 @@ struct ExerciseDetailsView: View {
                 .edgesIgnoringSafeArea(.top)
                 
                 HStack {
+                    
                     Text("Add to Favourites")
                         .font(.title)
                         .foregroundColor(.white)

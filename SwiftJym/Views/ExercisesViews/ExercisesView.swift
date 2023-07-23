@@ -13,7 +13,7 @@ struct ExercisesView: View {
     //Workout categories
     private let muscleGroups = ["All", "Chest", "Back", "Legs", "Shoulders", "Biceps", "Triceps"]
     
-    private let allExercises = Exercise.allExercisesExample() // FIXME: injected an example array for preview/debug purpose
+    private let allExercises = Exercise.allExercises()
     
     var body: some View {
         
