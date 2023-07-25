@@ -8,7 +8,7 @@
 import SwiftUI
 
 struct ExerciseDetailsView: View {
-    let exercise: Exercise
+    var exercise: Exercise
     
     @Environment(\.presentationMode) var presentationMode: Binding<PresentationMode>
     var body: some View {
@@ -22,37 +22,12 @@ struct ExerciseDetailsView: View {
                         .aspectRatio(contentMode: .fit)
                     
                     DescriptionView(exercise: exercise)
-                        .offset(y: -40)
+                        .offset(y: -45)
                 }
                 .edgesIgnoringSafeArea(.top)
                 
-                HStack {
-                    
-                    Text("Add to Favourites")
-                        .font(.title)
-                        .foregroundColor(.white)
-                        .fontWeight(.bold)
-                    
-                    Spacer()
-                    
-                    Button(action: {}, label:  {
-                        Image(systemName: "heart")
-                            .padding()
-                            .padding(.horizontal)
-                            .background(Color.white)
-                            .cornerRadius(10.0)
-                            .foregroundColor(.red)
-                            .fontWeight(.bold)
-                    })
-                }
-                .padding()
-                .padding(.horizontal)
-                .background(Color("Primary"))
-                .cornerRadius(50, corners: .topLeft)
-                .frame(maxHeight: .infinity, alignment: .bottom)
                 
             }
-            .edgesIgnoringSafeArea(.bottom)
             .navigationBarBackButtonHidden(true)
             .navigationBarItems(leading:
                                     CustomBackButtonView(action: {presentationMode.wrappedValue.dismiss()}), trailing: Image(systemName:"ellipsis")
@@ -89,20 +64,50 @@ struct DescriptionView: View {
     
     var body: some View {
         VStack (alignment: .leading) {
-            Text(exercise.name)
-                .font(.title)
+            HStack {
+                Text(exercise.name)
+                    .font(.title)
                 .fontWeight(.bold)
+                
+                Spacer()
+                
+                Button(action: {}, label:  {
+                    Image(systemName: "heart")
+                        .resizable()
+                        .scaledToFit()
+                        .frame(width: 30, height: 35)
+                        .padding(.trailing)
+                        .foregroundColor(.red)
+                        .fontWeight(.bold)
+                })
+            }
             
             HStack (spacing: 4) {
                 ForEach(0 ..< 5) { item in
                     Image(systemName: "star.fill")
                         .foregroundColor(Color.yellow)
                 }
-                Text(exercise.level.capitalized)
-                    .opacity(0.5)
-                    .padding(.leading, 8)
+                
+                HStack{
+                    if(exercise.level == "beginner"){
+                        Image(systemName: "1.circle.fill")
+                            .foregroundColor(.green)
+                    } else if(exercise.level == "intermediate"){
+                        Image(systemName: "2.circle.fill")
+                            .foregroundColor(.orange)
+                    } else {
+                        Image(systemName: "3.circle.fill")
+                            .foregroundColor(.red)
+                    }
+                    Text(exercise.level.capitalized)
+                        .opacity(0.5)
+                    
+                }
+                .padding(.leading)
                 
                 Spacer()
+                
+                
                 
             }
             

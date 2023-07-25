@@ -10,45 +10,70 @@ import SwiftUI
 struct ExercisesView: View {
     
     @State private var selectedMuscleGroup: Int = 0
-    //Workout categories
-    private let muscleGroups = ["All", "Chest", "Back", "Legs", "Shoulders", "Biceps", "Triceps"]
+    @State private var showFavoritesOnly = false
     
+    ///Muscle Group categories
+    private let muscleGroups = Exercise.muscleGroupsList()
+    
+    ///All exercises list generated from Exercise.swift
     private let allExercises = Exercise.allExercises()
+    
+    var favoriteExercises: [Exercise] {
+        exercises.filter{ exercise in
+            (!showFavoritesOnly || exercise.isFavorite)
+        }
+    }
     
     var body: some View {
         
-        ZStack {
-            Color("Bg")
-                .edgesIgnoringSafeArea(.all)
-            
-            VStack(alignment: .leading) {
-                AppBarView()
+        NavigationView {
+            ZStack {
+                Color("Bg")
+                    .edgesIgnoringSafeArea(.all)
                 
-                ExerciseListTagLineView()
-                    .padding()
-                
-                SearchAndScanView()
-                
-                ScrollView (.horizontal, showsIndicators: false) {
-                    HStack {
-                        ForEach(0 ..< muscleGroups.count, id: \.self) { i in
-                            MuscleGroupView(isActive: i == selectedMuscleGroup, muscleGroup: muscleGroups[i])
-                                .onTapGesture {
-                                    selectedMuscleGroup = i
-                                }
+                VStack(alignment: .leading) {
+                    AppBarView()
+                    
+                    ExerciseListTagLineView()
+                        .padding()
+                    
+                    SearchAndScanView()
+                    
+                    ScrollView (.horizontal, showsIndicators: false) {
+                        HStack {
+                            ForEach(0 ..< muscleGroups.count, id: \.self) { i in
+                                MuscleGroupView(isActive: i == selectedMuscleGroup, muscleGroup: muscleGroups[i])
+                                    .onTapGesture {
+                                        selectedMuscleGroup = i
+                                    }
+                            }
                         }
+                        .padding()
                     }
-                    .padding()
+                    Toggle(isOn: $showFavoritesOnly){
+                        Text("Favorites Only")
+                            .font(.custom("Futura", size: 18))
+                        
+                    }
+                    .padding(.horizontal)
+                    
+                    
+                        Text("Exercises")
+                            .font(.custom("Futura-Medium", size: 25))
+                            .padding(.horizontal)
+                        
+                        
+                        List{
+                            
+                            ForEach(favoriteExercises) { exercise in
+                                NavigationLink(destination: ExerciseDetailsView(exercise: exercise)) {
+                                    ExerciseRow(exercise: exercise, filter: muscleGroups[selectedMuscleGroup])
+                                }
+                            }
+                        }
+                        .ignoresSafeArea(.all)
+                    
                 }
-                
-                Text("Exercises")
-                    .font(.custom("Futura-Medium", size: 25))
-                    .padding()
-                
-                List(allExercises) { item in
-                    ExerciseRow(exercise: item)
-                }
-                .ignoresSafeArea(.all)
             }
         }
         
@@ -64,9 +89,9 @@ struct ExercisesView_Previews: PreviewProvider {
 struct ExerciseListTagLineView: View {
     var body: some View {
         Text("Find what moves ")
-            .font(.custom("Futura", size: 20))
+            .font(.custom("Futura", size: 25))
         + Text("you.")
-            .font(.custom("Futura-Bold", size: 20))
+            .font(.custom("Futura-Bold", size: 25))
             .foregroundColor(Color("Primary"))
     }
 }
@@ -121,8 +146,29 @@ struct MuscleGroupView: View {
 
 struct ExerciseRow: View {
     var exercise: Exercise
+    var filter: String
     
     var body: some View {
-        Text(exercise.name)
+        HStack {
+            if(exercise.level == "beginner"){
+                Image(systemName: "1.circle.fill")
+                    .foregroundColor(.green)
+            } else if(exercise.level == "intermediate"){
+                Image(systemName: "2.circle.fill")
+                    .foregroundColor(.orange)
+            } else {
+                Image(systemName: "3.circle.fill")
+                    .foregroundColor(.red)
+            }
+            Text(exercise.name)
+            
+            Spacer()
+            
+            if exercise.isFavorite {
+                Image(systemName: "heart.fill")
+                    .foregroundColor(.red)
+            }
+        }
+        .lineLimit(1)
     }
 }
