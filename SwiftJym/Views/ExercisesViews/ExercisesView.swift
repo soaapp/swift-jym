@@ -83,7 +83,7 @@ struct SearchAndScanView: View {
                 TextField("Search exercises", text: $search)
             }
             .padding(.all, 15)
-            .background(Color.white)
+            .background(Color("bg"))
             .cornerRadius(6)
             .padding(.horizontal,1)
             
@@ -106,11 +106,11 @@ struct MuscleGroupView: View {
             Text(muscleGroup)
                 .font(.system(size:20))
                 .fontWeight(.medium)
-                .foregroundColor(isActive ? .black : .gray)
+                .foregroundColor(isActive ? .primary : .secondary)
             
             
             if (isActive) {
-                Color(.black)
+                Color.primary
                     .frame(width: 15, height: 2)
                     .clipShape(Capsule())
             }
