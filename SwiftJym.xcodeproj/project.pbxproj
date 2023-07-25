@@ -17,6 +17,7 @@
 		EF8E5EF52A55D3AA002E8BCB /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = EF8E5EF42A55D3AA002E8BCB /* Preview Assets.xcassets */; };
 		EF8E5EFC2A55D769002E8BCB /* JymHomePage.swift in Sources */ = {isa = PBXBuildFile; fileRef = EF8E5EFB2A55D769002E8BCB /* JymHomePage.swift */; };
 		EF96B61D2A6D083B00DACB2D /* exercisesJym.json in Resources */ = {isa = PBXBuildFile; fileRef = EF96B61C2A6D083B00DACB2D /* exercisesJym.json */; };
+		EF96B6212A6F986F00DACB2D /* Launch Screen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = EF96B6202A6F986F00DACB2D /* Launch Screen.storyboard */; };
 		EF9FBEC72A6B62A7006DEC12 /* ExerciseDetailsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = EF9FBEC62A6B62A7006DEC12 /* ExerciseDetailsView.swift */; };
 		EFE2CE5B2A6B8CF200F8DF87 /* ExerciseModelData.swift in Sources */ = {isa = PBXBuildFile; fileRef = EFE2CE5A2A6B8CF200F8DF87 /* ExerciseModelData.swift */; };
 		EFE45B012A65C6F0006748FF /* GymGoalsDataModel.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = EFE45AFF2A65C6F0006748FF /* GymGoalsDataModel.xcdatamodeld */; };
@@ -36,6 +37,7 @@
 		EF8E5EF42A55D3AA002E8BCB /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
 		EF8E5EFB2A55D769002E8BCB /* JymHomePage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = JymHomePage.swift; sourceTree = "<group>"; };
 		EF96B61C2A6D083B00DACB2D /* exercisesJym.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = exercisesJym.json; sourceTree = "<group>"; };
+		EF96B6202A6F986F00DACB2D /* Launch Screen.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = "Launch Screen.storyboard"; sourceTree = "<group>"; };
 		EF9FBEC62A6B62A7006DEC12 /* ExerciseDetailsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExerciseDetailsView.swift; sourceTree = "<group>"; };
 		EFE2CE5A2A6B8CF200F8DF87 /* ExerciseModelData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExerciseModelData.swift; sourceTree = "<group>"; };
 		EFE2CE672A6BAF4500F8DF87 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist; path = Info.plist; sourceTree = "<group>"; };
@@ -58,6 +60,7 @@
 		EF8E5EE12A55D3A5002E8BCB = {
 			isa = PBXGroup;
 			children = (
+				EF96B6202A6F986F00DACB2D /* Launch Screen.storyboard */,
 				EFE2CE622A6B9F8D00F8DF87 /* Resources */,
 				EFE45B062A65D9B5006748FF /* DataManager.swift */,
 				EF8E5EEC2A55D3A5002E8BCB /* SwiftJym */,
@@ -204,6 +207,7 @@
 			files = (
 				EF96B61D2A6D083B00DACB2D /* exercisesJym.json in Resources */,
 				EF8E5EF52A55D3AA002E8BCB /* Preview Assets.xcassets in Resources */,
+				EF96B6212A6F986F00DACB2D /* Launch Screen.storyboard in Resources */,
 				EF8E5EF22A55D3AA002E8BCB /* Assets.xcassets in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
