@@ -22,6 +22,7 @@ struct Exercise: Hashable, Codable, Identifiable {
 
 #if DEBUG
 extension Exercise {
+    
 
     static func recentExercises() -> [Exercise] {
         
@@ -60,6 +61,13 @@ extension Exercise {
         }
         
         return allExercises
+    }
+    
+    static func muscleGroupsList() -> [String] {
+        
+        var muscleGroupList = ["All", "Abdominals", "Abductors", "Adductors", "Middle Back", "Lower Back", "Biceps", "Calves", "Chest", "Forearms", "Glutes", "Hamstrings", "Lats", "Neck", "Quadricepts", "Shoulders", "Traps", "Triceps"]
+        
+        return muscleGroupList
     }
 }
 #endif
