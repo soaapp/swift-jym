@@ -28,9 +28,9 @@ extension Exercise {
         
         var recentExercises = [Exercise]()
         
-        for index in 0..<exercises.count {
-            if(exercises[index].isRecent){
-                recentExercises.append(exercises[index])
+        for index in 0..<ExerciseModelData().exercises.count {
+            if(ExerciseModelData().exercises[index].isRecent){
+                recentExercises.append(ExerciseModelData().exercises[index])
             }
         }
         
@@ -42,9 +42,9 @@ extension Exercise {
         
         var featuredExercises = [Exercise]()
         
-        for index in 0..<exercises.count {
-            if(exercises[index].isFeatured){
-                featuredExercises.append(exercises[index])
+        for index in 0..<ExerciseModelData().exercises.count {
+            if(ExerciseModelData().exercises[index].isFeatured){
+                featuredExercises.append(ExerciseModelData().exercises[index])
             }
         }
         
@@ -56,8 +56,8 @@ extension Exercise {
         
         var allExercises = [Exercise]()
         
-        for index in 0..<exercises.count {
-            allExercises.append(exercises[index])
+        for index in 0..<ExerciseModelData().exercises.count {
+            allExercises.append(ExerciseModelData().exercises[index])
         }
         
         return allExercises
