@@ -16,7 +16,7 @@ struct Exercise: Hashable, Codable, Identifiable {
     let primaryMuscles, secondaryMuscles: [String]
     let instructions: [String]
     let category, imageName: String
-    let isFavorite, isFeatured, isRecent: Bool
+    var isFavorite, isFeatured, isRecent: Bool
 }
 
 
