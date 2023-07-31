@@ -8,37 +8,46 @@
 import SwiftUI
 
 struct ExerciseDetailsView: View {
+    @EnvironmentObject var exerciseModelData : ExerciseModelData
+    @Environment(\.presentationMode) var presentationMode: Binding<PresentationMode>
     var exercise: Exercise
     
-    @Environment(\.presentationMode) var presentationMode: Binding<PresentationMode>
+    var exerciseIndex: Int {
+        exerciseModelData.exercises.firstIndex(where: {$0.id == exercise.id})!
+    }
+    
+    
     var body: some View {
-            ZStack {
-                Color("Bg")
-                    .edgesIgnoringSafeArea(.all)
+        ZStack {
+            Color("Bg")
+                .edgesIgnoringSafeArea(.all)
+            
+            ScrollView {
+                Image(exercise.imageName)
+                    .resizable()
+                    .aspectRatio(contentMode: .fit)
                 
-                ScrollView {
-                    Image(exercise.imageName)
-                        .resizable()
-                        .aspectRatio(contentMode: .fit)
-                    
-                    DescriptionView(exercise: exercise)
-                        .offset(y: -45)
-                }
-                .edgesIgnoringSafeArea(.top)
-                
-                
+                DescriptionView(isSet: $exerciseModelData.exercises[exerciseIndex].isFavorite, exercise: exercise, exerciseModelData: exerciseModelData)
+                    .offset(y: -45)
             }
-            .navigationBarBackButtonHidden(true)
-            .navigationBarItems(leading:
-                                    CustomBackButtonView(action: {presentationMode.wrappedValue.dismiss()}), trailing: Image(systemName:"ellipsis")
-            )
+            .edgesIgnoringSafeArea(.top)
+            
+            
+        }
+        .navigationBarBackButtonHidden(true)
+        .navigationBarItems(leading:
+                                CustomBackButtonView(action: {presentationMode.wrappedValue.dismiss()}), trailing: Image(systemName:"ellipsis")
+        )
         
     }
 }
 
 struct ExerciseDetailsView_Previews: PreviewProvider {
+    static let exerciseModelData = ExerciseModelData()
+    
     static var previews: some View {
-        ExerciseDetailsView(exercise: exercises[0])
+        ExerciseDetailsView(exercise: exerciseModelData.exercises[0])
+            .environmentObject(exerciseModelData)
     }
 }
 
@@ -60,33 +69,40 @@ extension View {
 }
 
 struct DescriptionView: View {
+    @Binding var isSet: Bool
     let exercise: Exercise
+    var exerciseModelData: ExerciseModelData
+    
     
     var body: some View {
         VStack (alignment: .leading) {
             HStack {
                 Text(exercise.name)
                     .font(.title)
-                .fontWeight(.bold)
+                    .fontWeight(.bold)
                 
                 Spacer()
                 
-                Button(action: {}, label:  {
-                    Image(systemName: "heart")
-                        .resizable()
+                //Button's label doesn't show up but improves accessibility
+                
+                Button {
+                    isSet.toggle()
+                } label: {
+                    Label("Toggle Favorite", systemImage: isSet ? "heart.fill" : "heart")
+                        .labelStyle(.iconOnly)
+                        .foregroundColor(isSet ? .red : .gray)
                         .scaledToFit()
                         .frame(width: 30, height: 35)
-                        .padding(.trailing)
-                        .foregroundColor(.red)
-                        .fontWeight(.bold)
-                })
+                }
+
             }
             
             HStack (spacing: 4) {
-                ForEach(0 ..< 5) { item in
-                    Image(systemName: "star.fill")
-                        .foregroundColor(Color.yellow)
-                }
+//                Placeholder star rating
+//                ForEach(0 ..< 5) { item in
+//                    Image(systemName: "star.fill")
+//                        .foregroundColor(Color.yellow)
+//                }
                 
                 HStack{
                     if(exercise.level == "beginner"){
@@ -103,7 +119,6 @@ struct DescriptionView: View {
                         .opacity(0.5)
                     
                 }
-                .padding(.leading)
                 
                 Spacer()
                 

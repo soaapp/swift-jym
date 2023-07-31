@@ -9,6 +9,8 @@ import SwiftUI
 
 struct ExercisesView: View {
     
+    @EnvironmentObject var exerciseModelData : ExerciseModelData
+    
     @State private var selectedMuscleGroup: Int = 0
     @State private var showFavoritesOnly = false
     
@@ -19,7 +21,7 @@ struct ExercisesView: View {
     private let allExercises = Exercise.allExercises()
     
     var favoriteExercises: [Exercise] {
-        exercises.filter{ exercise in
+        exerciseModelData.exercises.filter{ exercise in
             (!showFavoritesOnly || exercise.isFavorite)
         }
     }
@@ -63,16 +65,14 @@ struct ExercisesView: View {
                             .padding(.horizontal)
                         
                         
-                        List{
-                            
-                            ForEach(favoriteExercises) { exercise in
-                                NavigationLink(destination: ExerciseDetailsView(exercise: exercise)) {
-                                    ExerciseRow(exercise: exercise, filter: muscleGroups[selectedMuscleGroup])
-                                }
+                    List{
+                        
+                        ForEach(favoriteExercises) { exercise in
+                            NavigationLink(destination: ExerciseDetailsView(exercise: exercise)) {
+                                ExerciseRow(exercise: exercise, filter: muscleGroups[selectedMuscleGroup])
                             }
                         }
-                        .ignoresSafeArea(.all)
-                    
+                    }
                 }
             }
         }
@@ -81,8 +81,11 @@ struct ExercisesView: View {
 }
 
 struct ExercisesView_Previews: PreviewProvider {
+    static let exerciseModelData = ExerciseModelData()
+    
     static var previews: some View {
         ExercisesView()
+            .environmentObject(exerciseModelData)
     }
 }
 

@@ -102,6 +102,7 @@ struct JymHomePage: View {
 struct JymHomePage_Previews: PreviewProvider {
     static var previews: some View {
         JymHomePage()
+            .environmentObject(ExerciseModelData())
     }
 }
 
@@ -164,15 +165,43 @@ struct ExerciseCardView: View {
                 .lineLimit(1)
             
             HStack (spacing: 2) {
-                ForEach(0 ..< 5) { item in
-                    Image(systemName: "star.fill")
-                        .foregroundColor(.yellow)
+                //                Placeholder star rating
+                //                ForEach(0 ..< 5) { item in
+                //                    Image(systemName: "star.fill")
+                //                        .foregroundColor(.yellow)
+                
+                
+                if(exercise.level == "beginner"){
+                    Image(systemName: "1.circle.fill")
+                        .foregroundColor(.green)
+                } else if(exercise.level == "intermediate"){
+                    Image(systemName: "2.circle.fill")
+                        .foregroundColor(.orange)
+                } else {
+                    Image(systemName: "3.circle.fill")
+                        .foregroundColor(.red)
                 }
+                Text(exercise.level.capitalized)
+                    .opacity(0.5)
+    
                 
                 Spacer()
                 
-                Image(systemName: "3.lane")
+                if(exercise.force == "push"){
+                    Image(systemName: "arrow.up")
+                        .foregroundColor(.yellow)
+                } else if(exercise.force == "pull") {
+                    Image(systemName: "arrow.down")
+                        .foregroundColor(.yellow)
+                } else {
+                    Image(systemName: "arrow.down.right.and.arrow.up.left")
+                        .foregroundColor(.yellow)
+                }
+                Text(exercise.force.capitalized)
+                    .opacity(0.5)
+                
             }
+            .lineLimit(1)
         }
         .frame(width: size)
         .padding()

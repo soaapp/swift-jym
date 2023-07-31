@@ -11,6 +11,7 @@
 		4297A3BB2A5F48A9000C46A0 /* ExercisesView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4297A3BA2A5F48A9000C46A0 /* ExercisesView.swift */; };
 		4297A3BD2A5F4939000C46A0 /* StatsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4297A3BC2A5F4939000C46A0 /* StatsView.swift */; };
 		4297A3BF2A5F4953000C46A0 /* GoalView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4297A3BE2A5F4953000C46A0 /* GoalView.swift */; };
+		EF67C0162A78538000A30B93 /* exercisesJymTest.json in Resources */ = {isa = PBXBuildFile; fileRef = EF67C0152A78538000A30B93 /* exercisesJymTest.json */; };
 		EF8E5EEE2A55D3A5002E8BCB /* SwiftJymApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = EF8E5EED2A55D3A5002E8BCB /* SwiftJymApp.swift */; };
 		EF8E5EF02A55D3A5002E8BCB /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = EF8E5EEF2A55D3A5002E8BCB /* ContentView.swift */; };
 		EF8E5EF22A55D3AA002E8BCB /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = EF8E5EF12A55D3AA002E8BCB /* Assets.xcassets */; };
@@ -30,6 +31,7 @@
 		4297A3BA2A5F48A9000C46A0 /* ExercisesView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExercisesView.swift; sourceTree = "<group>"; };
 		4297A3BC2A5F4939000C46A0 /* StatsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StatsView.swift; sourceTree = "<group>"; };
 		4297A3BE2A5F4953000C46A0 /* GoalView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GoalView.swift; sourceTree = "<group>"; };
+		EF67C0152A78538000A30B93 /* exercisesJymTest.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = exercisesJymTest.json; sourceTree = "<group>"; };
 		EF8E5EEA2A55D3A5002E8BCB /* SwiftJym.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = SwiftJym.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		EF8E5EED2A55D3A5002E8BCB /* SwiftJymApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SwiftJymApp.swift; sourceTree = "<group>"; };
 		EF8E5EEF2A55D3A5002E8BCB /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
@@ -57,6 +59,13 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		EF473F0D2A74840D008BD1AC /* Helpers */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Helpers;
+			sourceTree = "<group>";
+		};
 		EF8E5EE12A55D3A5002E8BCB = {
 			isa = PBXGroup;
 			children = (
@@ -100,6 +109,7 @@
 		EF8F3EF72A610AE600C6B21A /* Views */ = {
 			isa = PBXGroup;
 			children = (
+				EF473F0D2A74840D008BD1AC /* Helpers */,
 				EF8E5EEF2A55D3A5002E8BCB /* ContentView.swift */,
 				EF8E5EFB2A55D769002E8BCB /* JymHomePage.swift */,
 				EFE2CE592A6B859300F8DF87 /* ExercisesViews */,
@@ -140,6 +150,7 @@
 		EFE2CE622A6B9F8D00F8DF87 /* Resources */ = {
 			isa = PBXGroup;
 			children = (
+				EF67C0152A78538000A30B93 /* exercisesJymTest.json */,
 				EF96B61C2A6D083B00DACB2D /* exercisesJym.json */,
 			);
 			path = Resources;
@@ -207,6 +218,7 @@
 			files = (
 				EF96B61D2A6D083B00DACB2D /* exercisesJym.json in Resources */,
 				EF8E5EF52A55D3AA002E8BCB /* Preview Assets.xcassets in Resources */,
+				EF67C0162A78538000A30B93 /* exercisesJymTest.json in Resources */,
 				EF96B6212A6F986F00DACB2D /* Launch Screen.storyboard in Resources */,
 				EF8E5EF22A55D3AA002E8BCB /* Assets.xcassets in Resources */,
 			);
