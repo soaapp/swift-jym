@@ -69,5 +69,6 @@ extension Exercise {
         
         return muscleGroupList
     }
+    
 }
 #endif

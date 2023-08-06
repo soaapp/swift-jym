@@ -13,6 +13,7 @@ struct ExercisesView: View {
     
     @State private var selectedMuscleGroup: Int = 0
     @State private var showFavoritesOnly = false
+    @State private var searchText = ""
     
     ///Muscle Group categories
     private let muscleGroups = Exercise.muscleGroupsList()
@@ -20,26 +21,43 @@ struct ExercisesView: View {
     ///All exercises list generated from Exercise.swift
     private let allExercises = Exercise.allExercises()
     
-    var favoriteExercises: [Exercise] {
-        exerciseModelData.exercises.filter{ exercise in
-            (!showFavoritesOnly || exercise.isFavorite)
+    
+    var filteredResults: [Exercise] {
+        
+        if searchText.isEmpty {
+            return exerciseModelData.exercises.filter{ exercise in
+                (!showFavoritesOnly || exercise.isFavorite)
+                 }
+        } else {
+            return exerciseModelData.exercises.filter{ exercise in
+                ((!showFavoritesOnly || exercise.isFavorite) && exercise.name.contains(searchText))
+                
+            }
         }
     }
     
+//    var selectedExercises: [Exercise] {
+//        exerciseModelData.exercises.filter{exercise in
+//
+//        }
+//    }
+    
     var body: some View {
         
-        NavigationView {
+        NavigationStack {
             ZStack {
                 Color("Bg")
                     .edgesIgnoringSafeArea(.all)
                 
                 VStack(alignment: .leading) {
-                    AppBarView()
+//                    AppBarView()
                     
                     ExerciseListTagLineView()
                         .padding()
                     
-                    SearchAndScanView()
+                    //SearchAndScanView()
+                    
+                    
                     
                     ScrollView (.horizontal, showsIndicators: false) {
                         HStack {
@@ -67,7 +85,7 @@ struct ExercisesView: View {
                         
                     List{
                         
-                        ForEach(favoriteExercises) { exercise in
+                        ForEach(filteredResults) { exercise in
                             NavigationLink(destination: ExerciseDetailsView(exercise: exercise)) {
                                 ExerciseRow(exercise: exercise, filter: muscleGroups[selectedMuscleGroup])
                             }
@@ -76,6 +94,7 @@ struct ExercisesView: View {
                 }
             }
         }
+        .searchable(text: $searchText)
         
     }
 }
