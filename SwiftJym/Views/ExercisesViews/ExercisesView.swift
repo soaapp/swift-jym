@@ -6,6 +6,9 @@
 //
 
 import SwiftUI
+import Foundation
+import os
+
 
 struct ExercisesView: View {
     
@@ -15,6 +18,8 @@ struct ExercisesView: View {
     @State private var showFavoritesOnly = false
     @State private var searchText = ""
     
+    var activeFilter = false
+    
     ///Muscle Group categories
     private let muscleGroups = Exercise.muscleGroupsList()
     
@@ -23,24 +28,34 @@ struct ExercisesView: View {
     
     
     var filteredResults: [Exercise] {
-        
+        //TODO: Clean up these if checks and turn into func
         if searchText.isEmpty {
+            
+            
+            if(selectedMuscleGroup == 0){
+                return exerciseModelData.exercises.filter{ exercise in
+                    ((!showFavoritesOnly || exercise.isFavorite) )
+                }
+            }
             return exerciseModelData.exercises.filter{ exercise in
-                (!showFavoritesOnly || exercise.isFavorite)
-                 }
+                ((!showFavoritesOnly || exercise.isFavorite) && exercise.primaryMuscles.contains(muscleGroups[selectedMuscleGroup].lowercased()))
+                
+            }
+            
         } else {
+            
+            if(selectedMuscleGroup == 0){
+                return exerciseModelData.exercises.filter{ exercise in
+                    ((!showFavoritesOnly || exercise.isFavorite) && exercise.name.contains(searchText))
+                }
+            }
             return exerciseModelData.exercises.filter{ exercise in
-                ((!showFavoritesOnly || exercise.isFavorite) && exercise.name.contains(searchText))
+                ((!showFavoritesOnly || exercise.isFavorite) && exercise.name.contains(searchText) && exercise.primaryMuscles.contains(muscleGroups[selectedMuscleGroup].lowercased()))
                 
             }
         }
     }
-    
-//    var selectedExercises: [Exercise] {
-//        exerciseModelData.exercises.filter{exercise in
-//
-//        }
-//    }
+
     
     var body: some View {
         
@@ -57,10 +72,12 @@ struct ExercisesView: View {
                     
                     //SearchAndScanView()
                     
-                    
+//                    let _ = print("group index: \(selectedMuscleGroup) and group: \(muscleGroups[selectedMuscleGroup])")
+                    let _ = print("group:\(muscleGroups[selectedMuscleGroup])")
                     
                     ScrollView (.horizontal, showsIndicators: false) {
                         HStack {
+                            
                             ForEach(0 ..< muscleGroups.count, id: \.self) { i in
                                 MuscleGroupView(isActive: i == selectedMuscleGroup, muscleGroup: muscleGroups[i])
                                     .onTapGesture {
@@ -84,12 +101,20 @@ struct ExercisesView: View {
                         
                         
                     List{
-                        
-                        ForEach(filteredResults) { exercise in
-                            NavigationLink(destination: ExerciseDetailsView(exercise: exercise)) {
-                                ExerciseRow(exercise: exercise, filter: muscleGroups[selectedMuscleGroup])
+//                        if(selectedMuscleGroup != 0){
+                            ForEach(filteredResults) { exercise in
+                                NavigationLink(destination: ExerciseDetailsView(exercise: exercise)) {
+                                    ExerciseRow(exercise: exercise)
+                                }
                             }
-                        }
+//                        } else {
+//                            ForEach(allExercises) { exercise in
+//                                NavigationLink(destination: ExerciseDetailsView(exercise: exercise)) {
+//                                    ExerciseRow(exercise: exercise)
+//                                }
+//                            }
+//                        }
+                        
                     }
                 }
             }
@@ -168,7 +193,6 @@ struct MuscleGroupView: View {
 
 struct ExerciseRow: View {
     var exercise: Exercise
-    var filter: String
     
     var body: some View {
         HStack {
