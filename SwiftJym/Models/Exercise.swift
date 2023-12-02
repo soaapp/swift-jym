@@ -65,7 +65,7 @@ extension Exercise {
     
     static func muscleGroupsList() -> [String] {
         
-        var muscleGroupList = ["All", "Abdominals", "Abductors", "Adductors", "Middle Back", "Lower Back", "Biceps", "Calves", "Chest", "Forearms", "Glutes", "Hamstrings", "Lats", "Neck", "Quadricepts", "Shoulders", "Traps", "Triceps"]
+        var muscleGroupList = ["All", "Abdominals", "Abductors", "Adductors", "Middle Back", "Lower Back", "Biceps", "Calves", "Chest", "Forearms", "Glutes", "Hamstrings", "Lats", "Neck", "Quadriceps", "Shoulders", "Traps", "Triceps"]
         
         return muscleGroupList
     }

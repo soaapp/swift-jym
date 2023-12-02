@@ -9,7 +9,7 @@ import Foundation
 import Combine
 
 final class ExerciseModelData: ObservableObject {
-    @Published var exercises: [Exercise] = load("exercisesJymTest.json")
+    @Published var exercises: [Exercise] = load("exercisesJym.json")
 }
 
 
