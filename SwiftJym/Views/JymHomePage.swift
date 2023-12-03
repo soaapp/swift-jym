@@ -38,7 +38,8 @@ struct JymHomePage: View {
                                     HStack {
                                         ForEach(featuredExercises) { item in
                                             NavigationLink(
-                                                destination: ExerciseDetailsView(exercise: item),
+                                                destination: ExerciseDetailsView(exercise: item)
+                                                    .navigationBarBackButtonHidden(false),
                                                 label: {
                                                     ExerciseCardView(exercise: item, size: 200)
                                                 })
@@ -63,7 +64,7 @@ struct JymHomePage: View {
                                                 label: {
                                                     ExerciseCardView(exercise: item, size: 150)
                                                 })
-                                                .navigationBarHidden(true)
+                                                .navigationBarHidden(false)
                                                 .foregroundColor(.black)
                                         }
                                         .padding(.trailing)
@@ -94,8 +95,9 @@ struct JymHomePage: View {
                         }
                 }
             }
-            .navigationBarBackButtonHidden(true)
+            .navigationBarBackButtonHidden(false)
         }
+        .navigationBarBackButtonHidden(false)
     }
 }
 
